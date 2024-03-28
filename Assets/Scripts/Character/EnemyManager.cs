@@ -39,24 +39,28 @@ namespace SOS.AndrewsAdventure.Character
                 party.MoveParty(battlePlayerLocation.position);
                 transform.position = battleEnemiesLocation.position;
                 gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            }
-            if (Vector3.Distance(playerLocation.position, transform.position) <= detectRange)
-            {
-                Boulderdash.destination = transform.position;
-                gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                gameObject.transform.GetChild(1).transform.LookAt(MCB);
-            }
-            if (Vector3.Distance(playerLocation.position, transform.position) <= chaseRange)
-            {
-                Boulderdash.destination = playerLocation.position;
                 gameObject.transform.GetChild(1).gameObject.SetActive(false);
-                gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                gameObject.transform.GetChild(0).transform.LookAt(MCB);
             }
-            if (Vector3.Distance(playerLocation.position, transform.position) > detectRange)
+            if (inBattle == false)
             {
-                gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                if (Vector3.Distance(playerLocation.position, transform.position) <= detectRange)
+                {
+                    Boulderdash.destination = transform.position;
+                    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                    gameObject.transform.GetChild(1).transform.LookAt(MCB);
+                }
+                if (Vector3.Distance(playerLocation.position, transform.position) <= chaseRange)
+                {
+                    Boulderdash.destination = playerLocation.position;
+                    gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    gameObject.transform.GetChild(0).transform.LookAt(MCB);
+                }
+                if (Vector3.Distance(playerLocation.position, transform.position) > detectRange)
+                {
+                    gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                }
             }
         }
     }
