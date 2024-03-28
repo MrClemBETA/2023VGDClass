@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     /// BA = Bonus Attack, additional damage that isn't affected by the damage calculation
     /// DD = Defense Divider, the value an attack's total damage is divided by
     /// BD = Bonus Defense, additional defense that isn't affected by the defense divider
+    public CinemachineVirtualCamera BattleCamera;
     private Party party; 
     public EnemyManager inBattle;
     public Health health;
@@ -36,6 +37,14 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (inBattle == false)
+        {
+            BattleCamera.Priority = 1;
+        }
+        if (inBattle == true)
+        {
+            BattleCamera.Priority = 3;
+            print("nice bug lol");
+        }
     }
 }
