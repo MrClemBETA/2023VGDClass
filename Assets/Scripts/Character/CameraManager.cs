@@ -1,13 +1,16 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SOS.AndrewsAdventure.Character
 {
-    public class CameraMovement : MonoBehaviour
+    public class CameraManager : MonoBehaviour
     {
         [SerializeField] float cameraRotateSpeed = 10;
         [SerializeField] float xBuffer = 100;
-        public bool inbattle = false;
+        [SerializeField] CinemachineVirtualCamera BattleCamera;
+        [SerializeField] Transform battlePlayerLocation;
+        [SerializeField] Transform player;  
         private float rotation = 0;
 
         public void HorizontalMovement(InputAction.CallbackContext value)
@@ -18,10 +21,10 @@ namespace SOS.AndrewsAdventure.Character
 
         private void Update()
         {
-            transform.Rotate(Vector3.up, rotation / 360);
-            if (inbattle == true)
+            if (player.position == battlePlayerLocation.position) 
             {
                 Camera.main.transform.position = new Vector3(0f, 0f, 90);
+                BattleCamera.Priority = 3;
             }
         }
     }
