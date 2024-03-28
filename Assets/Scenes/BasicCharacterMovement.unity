@@ -1976,6 +1976,28 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1081529927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3227372182555930766, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+  m_PrefabInstance: {fileID: 7669564602453157368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1081529930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081529927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15074ee7f93a9de4296880a475593614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRotateSpeed: 0.25
+  xBuffer: 250
+  BattleCamera: {fileID: 0}
+  battlePlayerLocation: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1099717835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5105497283239488713, guid: 61a2e24a7f86bc543ae4e82bbb7e1e74, type: 3}
@@ -3146,6 +3168,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 696199865}
+    - target: {fileID: 2131094157147686670, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2546614842087316417, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: CameraDistance
       value: 2
@@ -3226,7 +3252,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2490898250814518814, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3236,6 +3263,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 817690787}
+    - targetCorrespondingSourceObject: {fileID: 3227372182555930766, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1081529930}
   m_SourcePrefab: {fileID: 100100000, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
 --- !u!1001 &7866436314249295682
 PrefabInstance:
