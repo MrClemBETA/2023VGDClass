@@ -57,13 +57,16 @@ namespace SOS.AndrewsAdventure.Character
 
         public void TakeDamage(int damage)
         {
-            if (!isInvincible)
+            if (transform.tag == "Player")
             {
-                isInvincible = true;
-                isRendered = false;
-                mRenderer.enabled = false;
+                if (!isInvincible)
+                {
+                    isInvincible = true;
+                    isRendered = false;
+                    mRenderer.enabled = false;
 
-                health = Mathf.Max(0, health - damage);
+                    health = Mathf.Max(0, health - damage);
+                }
             }
         }
 

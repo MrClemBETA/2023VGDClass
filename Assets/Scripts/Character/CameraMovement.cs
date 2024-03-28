@@ -5,15 +5,10 @@ namespace SOS.AndrewsAdventure.Character
 {
     public class CameraMovement : MonoBehaviour
     {
-        [SerializeField] float cameraRotateSpeed;
+        [SerializeField] float cameraRotateSpeed = 10;
         [SerializeField] float xBuffer = 100;
         public bool inbattle = false;
-        
         private float rotation = 0;
-        public void Start()
-        {
-            
-        }
 
         public void HorizontalMovement(InputAction.CallbackContext value)
         {

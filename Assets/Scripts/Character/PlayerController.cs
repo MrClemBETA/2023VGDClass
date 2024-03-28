@@ -47,7 +47,7 @@ namespace SOS.AndrewsAdventure.Character
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (controller.isGrounded)
+            if (Input.GetKeyDown("space") && controller.isGrounded)
             {
                 movementComposite.y = jumpSpeed; ;
             }
@@ -57,6 +57,19 @@ namespace SOS.AndrewsAdventure.Character
         {
             if (value.started) speedMultiplier = sprintMultiplier;
             else if(value.canceled) speedMultiplier = 1f;
+        }
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if(controller.isGrounded == true && hit.transform.CompareTag("Movable"))
+            {
+                Rigidbody boxBody = hit.collider.attachedRigidbody;
+                if(boxBody == null || boxBody.isKinematic) 
+                {
+                    return;
+                }
+                Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+                boxBody.velocity = pushDir * 2;
+            }
         }
     }
 }

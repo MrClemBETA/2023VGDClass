@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Web
+  - CinemachineTarget
+  - Movable
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - Enemy Layer
   - Water
   - UI
-  - 
-  - 
+  - MOP Layer
+  - Trap Layer
   - 
   - 
   - 
