@@ -30,7 +30,7 @@ namespace SOS.AndrewsAdventure.Character
         {
             if (CanMove)
             {
-                if (vCamera3rdPerson.Priority == 10)
+                if (vCamera3rdPerson.Priority == 2)
                 {
                     float facing = Camera.main.transform.eulerAngles.y;
                     Vector3 turnedMovement = Quaternion.Euler(0, facing, 0) * movementComposite;

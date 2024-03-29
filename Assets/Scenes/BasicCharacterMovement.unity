@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15040814}
   - component: {fileID: 15040815}
+  - component: {fileID: 15040816}
   m_Layer: 0
   m_Name: Battle Camera
   m_TagString: Untagged
@@ -148,13 +149,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15040811}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 6, z: 85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 6, z: -1.5}
+  m_LocalScale: {x: 0.05, y: 0.6238749, z: 0.10641564}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 382673216}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 756335324}
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &15040815
 MonoBehaviour:
@@ -172,7 +173,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 2
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -202,6 +203,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 382673216}
+--- !u!114 &15040816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15040811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleCamera: {fileID: 15040815}
+  inBattle: {fileID: 1117978373}
+  health: {fileID: 0}
+  chosenCharacter: {fileID: 0}
+  chosenEnemy: {fileID: 0}
 --- !u!43 &59405398
 Mesh:
   m_ObjectHideFlags: 0
@@ -1461,6 +1479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BattleCamera: {fileID: 0}
   inBattle: {fileID: 0}
   health: {fileID: 716202207}
   chosenCharacter: {fileID: 0}
@@ -1571,6 +1590,7 @@ Transform:
   m_Children:
   - {fileID: 1393813672}
   - {fileID: 849468884}
+  - {fileID: 15040814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &756335325
@@ -1957,28 +1977,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1081529927 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3227372182555930766, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-  m_PrefabInstance: {fileID: 7669564602453157368}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1081529930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081529927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15074ee7f93a9de4296880a475593614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraRotateSpeed: 0.25
-  xBuffer: 250
-  BattleCamera: {fileID: 0}
-  battlePlayerLocation: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1099717835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5105497283239488713, guid: 61a2e24a7f86bc543ae4e82bbb7e1e74, type: 3}
@@ -2160,7 +2158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39615a6890207874ab3f897701f4d2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vCamera3rdPerson: {fileID: 15040815}
   battlePlayerLocation: {fileID: 1393813672}
   battleEnemiesLocation: {fileID: 849468884}
   playerLocation: {fileID: 817690786}
@@ -2194,6 +2191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BattleCamera: {fileID: 0}
   inBattle: {fileID: 1117978373}
   health: {fileID: 1117978372}
   chosenCharacter: {fileID: 0}
@@ -2303,8 +2301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393813671}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.344, y: 1.17, z: -0.009}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.344, y: 1.17, z: -0.008999634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3150,10 +3148,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 696199865}
-    - target: {fileID: 2131094157147686670, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2546614842087316417, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: CameraDistance
       value: 2
@@ -3189,6 +3183,10 @@ PrefabInstance:
     - target: {fileID: 4466276617249225983, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466276617249225983, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: m_Priority
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4869063684469822565, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3230,8 +3228,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2490898250814518814, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3241,9 +3238,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 817690787}
-    - targetCorrespondingSourceObject: {fileID: 3227372182555930766, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1081529930}
   m_SourcePrefab: {fileID: 100100000, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
 --- !u!1001 &7866436314249295682
 PrefabInstance:
@@ -3352,7 +3346,6 @@ SceneRoots:
   - {fileID: 1239503779}
   - {fileID: 7669564602453157368}
   - {fileID: 756335324}
-  - {fileID: 15040814}
   - {fileID: 1117978369}
   - {fileID: 5843678691648582735}
   - {fileID: 1096101298979388538}
