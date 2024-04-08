@@ -1449,38 +1449,6 @@ Transform:
   - {fileID: 1709705916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
---- !u!1 &716202205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7393586390075867549, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-  m_PrefabInstance: {fileID: 7669564602453157368}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &716202207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1475669101277691113, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-  m_PrefabInstance: {fileID: 7669564602453157368}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716202205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53a3c744de1d8b4dbf85dbbef25d99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &716202209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716202205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inBattle: {fileID: 0}
-  health: {fileID: 716202207}
-  chosenCharacter: {fileID: 0}
-  chosenEnemy: {fileID: 0}
 --- !u!1 &756335320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1612,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGeometry: 0
-  m_DefaultArea: 1
+  m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -1778,6 +1746,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: {fileID: 11400000, guid: 82ea90e5ba8e0654fb0046bdbdb150bb, type: 2}
+--- !u!114 &817690789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1041085440856384414, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+  m_PrefabInstance: {fileID: 7669564602453157368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274925019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53a3c744de1d8b4dbf85dbbef25d99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &817690797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274925019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: Andrew
+  BattleCamera: {fileID: 0}
+  inBattle: {fileID: 0}
+  health: {fileID: 817690789}
+  chosenCharacter: {fileID: 0}
+  chosenEnemy: {fileID: 0}
 --- !u!1 &849468883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: 
+  BattleCamera: {fileID: 0}
   inBattle: {fileID: 1117978373}
   health: {fileID: 1117978372}
   chosenCharacter: {fileID: 0}
@@ -2298,7 +2297,7 @@ Transform:
   m_GameObject: {fileID: 1393813671}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.344, y: 1.5, z: -0.008999634}
+  m_LocalPosition: {x: -0.25, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3100,6 +3099,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 647387378038690081, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3212,6 +3215,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[0].x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[0].y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[0].z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[1].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[1].y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928599240594081191, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: battlePointOffsets.Array.data[1].z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 7393586390075867549, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_Name
       value: Party
@@ -3224,16 +3251,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1475669101277691113, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7393586390075867549, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 716202209}
     - targetCorrespondingSourceObject: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 817690787}
+    - targetCorrespondingSourceObject: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 817690797}
   m_SourcePrefab: {fileID: 100100000, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
 --- !u!1001 &7866436314249295682
 PrefabInstance:

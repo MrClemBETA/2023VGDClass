@@ -4,6 +4,7 @@ using SOS.AndrewsAdventure.Character.Party;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -18,10 +19,24 @@ public class BattleManager : MonoBehaviour
     public Health health;
     public Transform chosenCharacter;
     public Transform chosenEnemy;
+    private new Renderer renderer;
+    private bool characterChosen;
 
     private void Start()
     {
-        BattleCamera = Camera.main;
+        renderer = GetComponent<Renderer>();
+    }
+    private void OnMouseDown()
+    {
+        if(renderer.tag == "Player")
+        {
+            print(renderer.transform.name);
+            characterChosen = true;
+        }
+        if(renderer.tag == "Enemy" && characterChosen = true)
+        {
+
+        }
     }
     void Awake()
     {
@@ -31,10 +46,11 @@ public class BattleManager : MonoBehaviour
     {
 
     }
-
-
     private void Update()
     {
+        if(inBattle == true)
+        {
 
+        }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - Web
   - CinemachineTarget
   - Movable
+  - PartyMember
+  - Enemy
   layers:
   - Default
   - TransparentFX
