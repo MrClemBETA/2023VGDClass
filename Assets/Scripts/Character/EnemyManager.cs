@@ -14,7 +14,7 @@ namespace SOS.AndrewsAdventure.Character
         [SerializeField] float detectRange = 0f;
         float chaseRange = 0f;
         public Transform MCB;
-        public bool inBattle = false;
+        public bool isInRange = false;
         private Party.Party party;
         public NavMeshAgent Boulderdash;
 
@@ -26,22 +26,22 @@ namespace SOS.AndrewsAdventure.Character
         }
         public void OnTriggerEnter(Collider collider)
         {
-            if (collider.tag == "Player")
+            if (collider.tag == "Player" && transform.tag == "Enemy")
             {
-                inBattle = true;
+                isInRange = true;
             }
         }
 
         public void Update()
         {
-            if (inBattle == true)
+            if (isInRange == true)
             {
                 party.MoveParty(battlePlayerLocation.position);
                 transform.position = battleEnemiesLocation.position;
                 gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 gameObject.transform.GetChild(1).gameObject.SetActive(false);
             }
-            if (inBattle == false)
+            if (isInRange == false)
             {
                 if (Vector3.Distance(playerLocation.position, transform.position) <= detectRange)
                 {

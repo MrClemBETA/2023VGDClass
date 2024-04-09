@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Andrew
   BattleCamera: {fileID: 0}
-  inBattle: {fileID: 0}
+  inBattle: 0
   health: {fileID: 817690789}
   chosenCharacter: {fileID: 0}
   chosenEnemy: {fileID: 0}
@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 1117978375}
   m_Layer: 3
   m_Name: Boulderdash
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   playerLocation: {fileID: 817690786}
   detectRange: 15
   MCB: {fileID: 696199866}
-  inBattle: 0
+  isInRange: 0
   Boulderdash: {fileID: 1117978370}
 --- !u!114 &1117978374
 MonoBehaviour:
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   BattleCamera: {fileID: 0}
-  inBattle: {fileID: 1117978373}
+  inBattle: 0
   health: {fileID: 1117978372}
   chosenCharacter: {fileID: 0}
   chosenEnemy: {fileID: 0}

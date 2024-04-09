@@ -13,14 +13,16 @@ public class BattleManager : MonoBehaviour
     /// DD = Defense Divider, the value an attack's total damage is divided by
     /// BD = Bonus Defense, additional defense that isn't affected by the defense divider 
     [SerializeField] string characterName;
+    [SerializeField] Transform andrewBattleLocation;
+    public Transform Andrew;
     public Camera BattleCamera;
     private Party party; 
-    public EnemyManager inBattle;
+    public static bool inBattle;
     public Health health;
     public Transform chosenCharacter;
     public Transform chosenEnemy;
     private new Renderer renderer;
-    private bool characterChosen;
+    public static bool characterChosen;
 
     private void Start()
     {
@@ -28,29 +30,31 @@ public class BattleManager : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(renderer.tag == "Player")
+        if (inBattle == true)
         {
-            print(renderer.transform.name);
-            characterChosen = true;
-        }
-        if(renderer.tag == "Enemy" && characterChosen = true)
-        {
+            if (renderer.tag == "Player")
+            {
+                print(renderer.transform.name);
+                characterChosen = true;
 
+            }
+            if (renderer.tag == "Enemy" && characterChosen == true)
+            {
+                print("Hit!");
+                characterChosen = false;
+            }
         }
+
     }
     void Awake()
     {
 
     }
-    void OnButtonDown()
-    {
-
-    }
     private void Update()
     {
-        if(inBattle == true)
+        if(Andrew.position == andrewBattleLocation.position)
         {
-
+            inBattle = true;
         }
     }
 }
