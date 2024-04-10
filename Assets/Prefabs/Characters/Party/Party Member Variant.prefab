@@ -128,6 +128,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2158019545750119958}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+--- !u!4 &1689375536716614889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+  m_PrefabInstance: {fileID: 2411145898815560834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2033954352473495123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -236,11 +241,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: 
+  characterLocation: {fileID: 0}
+  character: {fileID: 1689375536716614889}
   BattleCamera: {fileID: 0}
-  inBattle: {fileID: 0}
   health: {fileID: 0}
-  chosenCharacter: {fileID: 0}
-  chosenEnemy: {fileID: 0}
+  alreadyChosen: 0
+  actionsMade: 0
+  playerTurn: 1
 --- !u!136 &7260611081453280922
 CapsuleCollider:
   m_ObjectHideFlags: 0

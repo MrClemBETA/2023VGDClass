@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1623,6 +1623,37 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: c831b5fe07fbb1a42a73f833c4cafcb5, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &767137592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767137593}
+  m_Layer: 0
+  m_Name: SerializeFieldEmpty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767137593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767137592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767924835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,11 +1801,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Andrew
+  characterLocation: {fileID: 1393813672}
+  character: {fileID: 817690786}
   BattleCamera: {fileID: 0}
-  inBattle: 0
   health: {fileID: 817690789}
-  chosenCharacter: {fileID: 0}
-  chosenEnemy: {fileID: 0}
+  alreadyChosen: 0
+  actionsMade: 0
+  playerTurn: 1
 --- !u!1 &849468883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,11 +2219,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: 
+  characterLocation: {fileID: 849468884}
+  character: {fileID: 1117978369}
   BattleCamera: {fileID: 0}
-  inBattle: 0
   health: {fileID: 1117978372}
-  chosenCharacter: {fileID: 0}
-  chosenEnemy: {fileID: 0}
+  alreadyChosen: 0
+  actionsMade: 0
+  playerTurn: 1
 --- !u!1001 &1239503779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3380,3 +3415,4 @@ SceneRoots:
   - {fileID: 1902495764385944646}
   - {fileID: 266711351}
   - {fileID: 7866436314249295682}
+  - {fileID: 767137593}

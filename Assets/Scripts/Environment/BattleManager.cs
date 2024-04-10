@@ -13,17 +13,18 @@ public class BattleManager : MonoBehaviour
     /// DD = Defense Divider, the value an attack's total damage is divided by
     /// BD = Bonus Defense, additional defense that isn't affected by the defense divider 
     [SerializeField] string characterName;
-    [SerializeField] Transform andrewBattleLocation;
-    public Transform Andrew;
+    public Transform characterLocation;
+    public Transform character;
     public Camera BattleCamera;
     private Party party; 
     public static bool inBattle;
     public Health health;
-    public Transform chosenCharacter;
-    public Transform chosenEnemy;
     private new Renderer renderer;
     public static bool characterChosen;
-
+    public bool alreadyChosen = false;
+    public int actionsMade = 0;
+    public bool playerTurn = true;
+ 
     private void Start()
     {
         renderer = GetComponent<Renderer>();
@@ -32,29 +33,37 @@ public class BattleManager : MonoBehaviour
     {
         if (inBattle == true)
         {
-            if (renderer.tag == "Player")
+            if (renderer.tag == "Player" && alreadyChosen == false && playerTurn == true)
             {
                 print(renderer.transform.name);
                 characterChosen = true;
-
+                alreadyChosen = true;
+            }
+            else if(renderer.tag == "Player" && characterChosen == true) 
+            {
+                print("Thanks");
+                characterChosen = false; 
+                alreadyChosen = true;
+                actionsMade++;
             }
             if (renderer.tag == "Enemy" && characterChosen == true)
             {
                 print("Hit!");
                 characterChosen = false;
+                actionsMade++;
             }
         }
 
     }
-    void Awake()
-    {
-
-    }
     private void Update()
     {
-        if(Andrew.position == andrewBattleLocation.position)
+        if(character.position == characterLocation.position)
         {
             inBattle = true;
+            if(actionsMade >= 3) 
+            {
+                playerTurn = false;
+            }
         }
     }
 }
