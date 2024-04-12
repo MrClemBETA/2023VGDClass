@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour
     /// DD = Defense Divider, the value an attack's total damage is divided by
     /// BD = Bonus Defense, additional defense that isn't affected by the defense divider 
     [SerializeField] string characterName;
+    [SerializeField] int enemiesInBattle;
     public Transform characterLocation;
     public Transform character;
     public Camera BattleCamera;
@@ -24,7 +25,14 @@ public class BattleManager : MonoBehaviour
     public bool alreadyChosen = false;
     public int actionsMade = 0;
     public bool playerTurn = true;
- 
+    
+    void enemyTurn()
+    {
+        for(int i = 0; i < enemiesInBattle; i++)
+        {
+
+        }
+    }
     private void Start()
     {
         renderer = GetComponent<Renderer>();
@@ -52,17 +60,23 @@ public class BattleManager : MonoBehaviour
                 characterChosen = false;
                 actionsMade++;
             }
+            if(playerTurn == false)
+            {
+                
+            }
         }
-
     }
     private void Update()
     {
-        if(character.position == characterLocation.position)
+        if(characterLocation != null)
         {
-            inBattle = true;
-            if(actionsMade >= 3) 
+            if (character.position == characterLocation.position)
             {
-                playerTurn = false;
+                inBattle = true;
+                if (actionsMade >= 3)
+                {
+                    playerTurn = false;
+                }
             }
         }
     }
