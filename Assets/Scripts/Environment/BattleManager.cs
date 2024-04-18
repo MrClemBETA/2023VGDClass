@@ -3,6 +3,7 @@ using SOS.AndrewsAdventure.Character;
 using SOS.AndrewsAdventure.Character.Party;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,11 @@ public class BattleManager : MonoBehaviour
     /// BD = Bonus Defense, additional defense that isn't affected by the defense divider 
     [SerializeField] string characterName;
     [SerializeField] int enemiesInBattle;
+    [SerializeField] int enemySpeed;
+    public int partySpeed;
+    public bool isStunned;
+    public static Transform chosenCharacter;
+    public Transform chosenEnemy;
     public Transform characterLocation;
     public Transform character;
     public Camera BattleCamera;
@@ -24,14 +30,18 @@ public class BattleManager : MonoBehaviour
     public static bool characterChosen;
     public bool alreadyChosen = false;
     public int actionsMade = 0;
-    public bool playerTurn = true;
-    
+    public bool playerTurn;
+    bool blank;
     void enemyTurn()
     {
         for(int i = 0; i < enemiesInBattle; i++)
         {
 
         }
+    }
+    void battleEnd()
+    {
+        playerTurn = blank;
     }
     private void Start()
     {
@@ -41,16 +51,22 @@ public class BattleManager : MonoBehaviour
     {
         if (inBattle == true)
         {
-            if (renderer.tag == "Player" && alreadyChosen == false && playerTurn == true)
+            if (renderer.tag == "Player" && isStunned == true)
+            {
+                print(renderer.transform.name + " is stunned!");
+                alreadyChosen = true;
+            }
+            if (renderer.tag == "Player" && alreadyChosen == false && playerTurn == true && isStunned == false)
             {
                 print(renderer.transform.name);
                 characterChosen = true;
+                chosenCharacter = transform;
                 alreadyChosen = true;
             }
             else if(renderer.tag == "Player" && characterChosen == true) 
             {
                 print("Thanks");
-                characterChosen = false; 
+                characterChosen = false;
                 alreadyChosen = true;
                 actionsMade++;
             }
@@ -62,7 +78,7 @@ public class BattleManager : MonoBehaviour
             }
             if(playerTurn == false)
             {
-                
+                enemyTurn();
             }
         }
     }
@@ -72,10 +88,33 @@ public class BattleManager : MonoBehaviour
         {
             if (character.position == characterLocation.position)
             {
-                inBattle = true;
-                if (actionsMade >= 3)
+                inBattle = true; // Decides who goes first
+                if (playerTurn == blank)
                 {
-                    playerTurn = false;
+                    if (partySpeed > enemySpeed)
+                    {
+                        playerTurn = true;
+                        print("You go first!");
+                    }
+                    else if (enemySpeed > partySpeed)
+                    {
+                        playerTurn = false;
+                        print("Enemy goes first!");
+                    }
+                    else
+                    {
+                        print("Equal speed! Coin flip!");
+                        if (Random.Range(1, 3) == 1)
+                        {
+                            playerTurn = true;
+                            print("You go first!");
+                        }
+                        else if (Random.Range(1, 3) == 2)
+                        {
+                            playerTurn = false;
+                            print("Enemy goes first!");
+                        }
+                    } // Decides who goes first
                 }
             }
         }

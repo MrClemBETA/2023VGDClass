@@ -10,6 +10,7 @@ namespace SOS.AndrewsAdventure.Character
     public class Character : MonoBehaviour
     {
         [SerializeField] protected AttributeGroup attributes;
+        [SerializeField] float partySpeed;
         float takenDamage = 0;
 
         public virtual int GetData(string att)
