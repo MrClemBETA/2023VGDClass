@@ -1467,7 +1467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: {fileID: 11400000, guid: 82ea90e5ba8e0654fb0046bdbdb150bb, type: 2}
-  partySpeed: 1
 --- !u!114 &817690789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1041085440856384414, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
@@ -1491,15 +1490,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: Andrew
   enemiesInBattle: 0
   enemySpeed: 0
-  partySpeed: 4
   isStunned: 0
-  chosenEnemy: {fileID: 0}
   characterLocation: {fileID: 1393813672}
   character: {fileID: 817690786}
-  BattleCamera: {fileID: 0}
   health: {fileID: 817690789}
   alreadyChosen: 0
   actionsMade: 0
@@ -1875,7 +1870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: {fileID: 11400000, guid: 49206d88f77409549833821ed49726b1, type: 2}
-  partySpeed: 0
   level: 1
 --- !u!114 &1117978375
 MonoBehaviour:
@@ -1889,15 +1883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
   enemiesInBattle: 0
   enemySpeed: 4
-  partySpeed: 0
   isStunned: 0
-  chosenEnemy: {fileID: 0}
   characterLocation: {fileID: 849468884}
   character: {fileID: 1117978369}
-  BattleCamera: {fileID: 0}
   health: {fileID: 1117978372}
   alreadyChosen: 0
   actionsMade: 0

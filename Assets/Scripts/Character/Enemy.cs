@@ -14,5 +14,4 @@ namespace SOS.AndrewsAdventure.Character
             return attributes.GetAttribute(att).GetData(level);
         }
     }
-
 }
