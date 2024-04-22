@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     public bool isStunned;
     public Transform characterLocation;
     public Transform character;
-    public static PlayerController walkSpeed;
+    public PlayerController walkSpeed;
     private Party party; 
     public static bool inBattle;
     public Health health;
@@ -41,7 +41,11 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         renderer = GetComponent<Renderer>();
-        partySpeed = walkSpeed.walkSpeed;
+        if(walkSpeed != null) 
+        { 
+            partySpeed = walkSpeed.walkSpeed; 
+        }
+        
     }
     private void OnMouseDown()
     {
@@ -86,7 +90,6 @@ public class BattleManager : MonoBehaviour
                 inBattle = true; // Decides who goes first
                 if (battleStart == false)
                 {
-                    print(partySpeed);
                         if (partySpeed > enemySpeed)
                         {
                             playerTurn = true;
@@ -102,13 +105,13 @@ public class BattleManager : MonoBehaviour
                         else if (enemySpeed == partySpeed)
                         {
                             print("Equal speed! Coin flip!");
-                            if (Random.Range(1, 3) == 1)
+                            if (Random.Range(0, 2) == 1)
                             {
                                 playerTurn = true;
                                 print("You go first!");
                                 battleStart = true;
                             }
-                            else if (Random.Range(1, 3) == 2)
+                            else
                             {
                                 playerTurn = false;
                                 print("Enemy goes first!");

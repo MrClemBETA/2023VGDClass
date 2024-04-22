@@ -1495,10 +1495,22 @@ MonoBehaviour:
   isStunned: 0
   characterLocation: {fileID: 1393813672}
   character: {fileID: 817690786}
+  walkSpeed: {fileID: 817690799}
   health: {fileID: 817690789}
   alreadyChosen: 0
   actionsMade: 0
   playerTurn: 1
+--- !u!114 &817690799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 165153048826977322, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+  m_PrefabInstance: {fileID: 7669564602453157368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274925019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361a1a7da03993545944c8a3b8010a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &849468884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2900291986003858727, guid: f901150963ed457468c23a47c3aaf49e, type: 3}
@@ -1888,6 +1900,7 @@ MonoBehaviour:
   isStunned: 0
   characterLocation: {fileID: 849468884}
   character: {fileID: 1117978369}
+  walkSpeed: {fileID: 0}
   health: {fileID: 1117978372}
   alreadyChosen: 0
   actionsMade: 0
@@ -2834,6 +2847,10 @@ PrefabInstance:
     - target: {fileID: 37707083451268676, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 165153048826977322, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
+      propertyPath: walkSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 567808420309936553, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
       propertyPath: m_TagString
