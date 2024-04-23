@@ -26,16 +26,60 @@ public class BattleManager : MonoBehaviour
     private new Renderer renderer;
     public static bool characterChosen;
     public bool alreadyChosen = false;
-    public int actionsMade = 0;
-    public bool playerTurn;
+    public static int actionsMade = 0;
+    public static bool isPlayerTurn;
     static bool battleStart = false;
+    void startBattle()
+    {
+        if (partySpeed > enemySpeed)
+        {
+            isPlayerTurn = true;
+            print("You go first!");
+            battleStart = true;
+        }
+        else if (enemySpeed > partySpeed)
+        {
+            isPlayerTurn = false;
+            print("Enemy goes first!");
+            battleStart = true;
+        }
+        else if (enemySpeed == partySpeed)
+        {
+            print("Equal speed! Coin flip!");
+            if (Random.Range(0, 2) == 1)
+            {
+                isPlayerTurn = true;
+                print("You go first!");
+                battleStart = true;
+            }
+            else
+            {
+                isPlayerTurn = false;
+                print("Enemy goes first!");
+                battleStart = true;
+            }
+        }
+    }
     void enemyTurn()
     {
-
+        if(isStunned == false)
+        {
+            if(Random.Range(0,2) == 0) // Attack
+            {
+                Random.Range(1, 4);
+                print("Attack!");
+            }
+            else // Support
+            {
+                Random.Range(1, enemiesInBattle + 1);
+                print("Support!");
+            }
+        }
+        isPlayerTurn = true;
     }
     void battleEnd()
     {
-        playerTurn = false;
+        isPlayerTurn = false;
         battleStart = false;
     }
     private void Start()
@@ -49,20 +93,20 @@ public class BattleManager : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (inBattle == true)
+        if(inBattle == true && battleStart == true)
         {
             if (renderer.tag == "Player" && isStunned == true)
             {
                 print(renderer.transform.name + " is stunned!");
                 alreadyChosen = true;
             }
-            if (renderer.tag == "Player" && alreadyChosen == false && playerTurn == true && isStunned == false)
+            if (renderer.tag == "Player" && alreadyChosen == false && isPlayerTurn == true && isStunned == false)
             {
                 print(renderer.transform.name);
                 characterChosen = true;
                 alreadyChosen = true;
             }
-            else if(renderer.tag == "Player" && characterChosen == true) 
+            else if (renderer.tag == "Player" && characterChosen == true)
             {
                 print("Thanks");
                 characterChosen = false;
@@ -75,9 +119,11 @@ public class BattleManager : MonoBehaviour
                 characterChosen = false;
                 actionsMade++;
             }
-            if(playerTurn == false)
+            if (actionsMade >= 3)
             {
-                enemyTurn();
+                isPlayerTurn = false;
+                actionsMade = 0;
+                alreadyChosen = false;
             }
         }
     }
@@ -87,37 +133,17 @@ public class BattleManager : MonoBehaviour
         {
             if (character.position == characterLocation.position)
             {
-                inBattle = true; // Decides who goes first
+                inBattle = true;
                 if (battleStart == false)
                 {
-                        if (partySpeed > enemySpeed)
-                        {
-                            playerTurn = true;
-                            print("You go first!");
-                            battleStart = true;
-                        }
-                        else if (enemySpeed > partySpeed)
-                        {
-                            playerTurn = false;
-                            print("Enemy goes first!");
-                            battleStart = true;
-                        }
-                        else if (enemySpeed == partySpeed)
-                        {
-                            print("Equal speed! Coin flip!");
-                            if (Random.Range(0, 2) == 1)
-                            {
-                                playerTurn = true;
-                                print("You go first!");
-                                battleStart = true;
-                            }
-                            else
-                            {
-                                playerTurn = false;
-                                print("Enemy goes first!");
-                                battleStart = true;
-                            }
-                        }// Decides who goes first
+                    startBattle();
+                }
+                else
+                {
+                    if (isPlayerTurn == false)
+                    {
+                        enemyTurn();
+                    }
                 }
             }
         }

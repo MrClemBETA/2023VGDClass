@@ -1498,8 +1498,6 @@ MonoBehaviour:
   walkSpeed: {fileID: 817690799}
   health: {fileID: 817690789}
   alreadyChosen: 0
-  actionsMade: 0
-  playerTurn: 1
 --- !u!114 &817690799 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 165153048826977322, guid: 04168ded95d25b74e92c93afff9352e3, type: 3}
@@ -1895,7 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesInBattle: 0
+  enemiesInBattle: 1
   enemySpeed: 4
   isStunned: 0
   characterLocation: {fileID: 849468884}
@@ -1903,8 +1901,6 @@ MonoBehaviour:
   walkSpeed: {fileID: 0}
   health: {fileID: 1117978372}
   alreadyChosen: 0
-  actionsMade: 0
-  playerTurn: 1
 --- !u!1001 &1239503779
 PrefabInstance:
   m_ObjectHideFlags: 0
