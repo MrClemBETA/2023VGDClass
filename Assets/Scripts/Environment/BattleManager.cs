@@ -76,6 +76,7 @@ public class BattleManager : MonoBehaviour
             }
         }
         isPlayerTurn = true;
+        
     }
     void battleEnd()
     {
@@ -119,12 +120,7 @@ public class BattleManager : MonoBehaviour
                 characterChosen = false;
                 actionsMade++;
             }
-            if (actionsMade >= 3)
-            {
-                isPlayerTurn = false;
-                actionsMade = 0;
-                alreadyChosen = false;
-            }
+
         }
     }
     private void Update()
@@ -144,6 +140,12 @@ public class BattleManager : MonoBehaviour
                     {
                         enemyTurn();
                     }
+                }
+                if (actionsMade >= 3)
+                {
+                    isPlayerTurn = false;
+                    alreadyChosen = false;
+                    actionsMade = 0;
                 }
             }
         }

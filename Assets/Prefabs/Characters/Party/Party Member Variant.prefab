@@ -240,14 +240,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c6985bf567f40abfe8b94a7e812f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
+  enemiesInBattle: 0
+  enemySpeed: 0
+  isStunned: 0
   characterLocation: {fileID: 0}
   character: {fileID: 1689375536716614889}
-  BattleCamera: {fileID: 0}
-  health: {fileID: 0}
+  walkSpeed: {fileID: 0}
+  health: {fileID: -8857785570557309050}
   alreadyChosen: 0
-  actionsMade: 0
-  playerTurn: 1
 --- !u!136 &7260611081453280922
 CapsuleCollider:
   m_ObjectHideFlags: 0
